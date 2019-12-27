@@ -1,12 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 const englishHelloPrefix = "Hello, "
 const spanishHelloPrefix = "Hola, "
 const frenchHelloPrefix = "Bonjour, "
 const spanish = "Spanish"
-const english = "English"
 const french = "French"
 
 func greetingPrefix(language string) (prefix string) {
