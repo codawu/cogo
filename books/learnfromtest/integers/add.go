@@ -1,6 +1,6 @@
 package integers
 
 func Add(x, y int) (sum int) {
-	sum = 4
+	sum = x + y
 	return
 }

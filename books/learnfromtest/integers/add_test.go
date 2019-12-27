@@ -13,6 +13,9 @@ func TestAdd(t *testing.T) {
 		sum := Add(2, 2)
 		except := 4
 		assertCorrectMessage(t, except, sum)
+		sum = Add(5, 5)
+		except = 10
+		assertCorrectMessage(t, except, sum)
 	})
 
 }
