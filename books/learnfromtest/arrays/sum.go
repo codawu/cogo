@@ -16,7 +16,7 @@ func SumAll(numbers ...[]int) (sums []int) {
 	return
 }
 
-func SumTails(numbers ...[]int) (sums []int) {
+func SumAllTails(numbers ...[]int) (sums []int) {
 	length := len(numbers)
 	sums = make([]int, length)
 	for i, arr := range numbers {
