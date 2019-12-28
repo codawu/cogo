@@ -1,11 +1,14 @@
 package arrays
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
 func TestSum(t *testing.T) {
 
 	t.Run("collection of any size", func(t *testing.T) {
-		numbers := []int{1, 1, 1, 1, 1,1}
+		numbers := []int{1, 1, 1, 1, 1, 1}
 		got := Sum(numbers)
 		want := 6
 		if want != got {
@@ -13,4 +16,13 @@ func TestSum(t *testing.T) {
 		}
 	})
 
+}
+
+func TestSumAll(t *testing.T) {
+	got := SumAll([]int{1, 2}, []int{0, 9})
+	want := []int{3, 9}
+	// slice can not compare use ==
+	if !reflect.DeepEqual(got, want) {
+		t.Errorf("got %v want %v", got, want)
+	}
 }
