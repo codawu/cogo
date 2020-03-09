@@ -1,19 +1,42 @@
 package structs
 
-import "testing"
+import (
+	"reflect"
+	"testing"
+)
 
-func TestPerimeter(t *testing.T) {
-	got := Perimeter(10.0, 10.0)
-	want := 40.0
-	if got != want {
-		t.Errorf("got %.2f want %.2f", got, want)
-	}
-}
+func TestShape(t *testing.T) {
 
-func TestArea(t *testing.T) {
-	got := Area(10.0, 10.0)
-	want := 100.0
-	if got != want {
-		t.Errorf("got %.2f want %.2f", got, want)
-	}
+	t.Run("shape perimeter", func(t *testing.T) {
+		shapes := []Shape{
+			Rectangle{4, 5},
+			Triangle{3, 4, 5},
+			Circle{5},
+		}
+		want := []float64{(4 + 5) * 2, 12, 2 * 5 * PI}
+		var got []float64
+		for _, shape := range shapes {
+			got = append(got, shape.Perimeter())
+		}
+		if !reflect.DeepEqual(want, got) {
+			t.Errorf("want %v but got %v", want, got)
+		}
+	})
+
+	t.Run("shape area", func(t *testing.T) {
+		shapes := []Shape{
+			Rectangle{4, 5},
+			Triangle{3, 4, 5},
+			Circle{5},
+		}
+		want := []float64{4 * 5, 6, 5 * 5 * PI}
+		var got []float64
+		for _, shape := range shapes {
+			got = append(got, shape.Area())
+		}
+		if !reflect.DeepEqual(want, got) {
+			t.Errorf("want %v but got %v", want, got)
+		}
+	})
+
 }
